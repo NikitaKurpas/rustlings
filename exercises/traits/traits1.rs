@@ -9,14 +9,14 @@
 // implementing this trait.
 // Execute `rustlings hint traits1` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
 impl AppendBar for String {
-    // TODO: Implement `AppendBar` for type `String`.
+    fn append_bar(self) -> Self {
+        format!("{}Bar", self)
+    }
 }
 
 fn main() {
@@ -40,5 +40,13 @@ mod tests {
             String::from("").append_bar().append_bar(),
             String::from("BarBar")
         );
+    }
+
+    #[test]
+    fn is_baz_bar_bar() {
+        assert_eq!(
+            String::from("baz").append_bar().append_bar(),
+            String::from("bazBarBar")
+        )
     }
 }
